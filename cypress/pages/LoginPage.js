@@ -8,7 +8,7 @@ class LoginPage {
       cy.contains(
         "Password must be 8 characters with at least one letter and one digit"
       ),
-    errorMessagePassword: () => cy.contains("Invalid Login Credential"),
+    errorMessage: () => cy.contains("Invalid Login Credential"),
   };
 
   typeUsername(username) {
@@ -23,10 +23,17 @@ class LoginPage {
     this.elements.loginBtn().click();
   }
 
-  submitLogin(username, password) {
+  submitLogin() {
     this.elements.signInBtn().click();
-    this.elements.usernameInput().type(username);
-    this.elements.passwordInput().type(password);
+    this.elements.usernameInput().type(Cypress.env("USERNAME"));
+    this.elements.passwordInput().type(Cypress.env("PASSWORD"));
+    this.elements.loginBtn().click();
+  }
+
+  submitLoginWithIncorrectCredentials() {
+    this.elements.signInBtn().click();
+    this.elements.usernameInput().type(Cypress.env("WRONGUSERNAME"));
+    this.elements.passwordInput().type(Cypress.env("PASSWORD"));
     this.elements.loginBtn().click();
   }
 }

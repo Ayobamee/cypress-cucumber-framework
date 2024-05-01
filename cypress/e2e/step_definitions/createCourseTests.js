@@ -9,11 +9,8 @@ import { landingPage } from "@pages/LandingPage";
 import { coursePage } from "@pages/CoursePage";
 
 Given("A user logged into the Quales App", () => {
-  cy.fixture("testData").then((users) => {
-    const testUser = users.userDetails;
-    cy.visit("/");
-    loginPage.submitLogin(testUser.username, testUser.password);
-  });
+  cy.visit("/");
+  loginPage.submitLogin();
 });
 
 When("I click the Add Course button", () => {

@@ -1,6 +1,4 @@
-Feature: Login page
-
-    Feature Login page will work depending on the user credentials.
+Feature: Create course successfully
 
     Background:
         Given A user logged into the Quales App

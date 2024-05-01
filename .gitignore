@@ -7,6 +7,11 @@
 node_modules/
 dist/
 
+
+#cypress.json
+cypress.env.json
+
+
 # Compiled Java class files
 *.class
 
